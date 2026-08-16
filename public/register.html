@@ -1,57 +1,317 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Register</title>
+    <title>CareerOS - Create Account</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <div class="login-box">
+    <div class="auth-container">
 
-        <h2>Register</h2>
+        <!-- LEFT SIDE -->
+        <section class="hero-section">
 
-        <form id="registerForm">
+            <div class="brand">
+                <div class="brand-icon">C</div>
+                <span>CareerOS</span>
+            </div>
 
-            <input
-                type="text"
-                id="name"
-                placeholder="Enter Name"
-                required
-            >
+            <div class="hero-content">
 
-            <input
-                type="email"
-                id="email"
-                placeholder="Enter Email"
-                required
-            >
+                <span class="badge">🚀 AI-Powered Career Platform</span>
 
-            <input
-                type="password"
-                id="password"
-                placeholder="Enter Password"
-                required
-            >
+                <h1>
+                    Build your career.
+                    <span>Get placement ready.</span>
+                </h1>
 
-            <button type="submit">Register</button>
+                <p>
+                    Prepare smarter with personalized learning,
+                    skill-gap analysis, resume insights and AI-powered
+                    interview preparation.
+                </p>
 
-            <p id="message"></p>
+                <div class="features">
 
-        </form>
+                    <div class="feature">
+                        <div class="feature-icon">🎯</div>
+                        <div>
+                            <h3>Personalized Roadmap</h3>
+                            <p>Learn what you actually need.</p>
+                        </div>
+                    </div>
 
-        <p>
-            Already have an account?
-            <a href="index.html">Login</a>
-        </p>
+                    <div class="feature">
+                        <div class="feature-icon">🤖</div>
+                        <div>
+                            <h3>AI Career Assistant</h3>
+                            <p>Get intelligent career guidance.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature">
+                        <div class="feature-icon">📈</div>
+                        <div>
+                            <h3>Placement Readiness</h3>
+                            <p>Track your progress and improve.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="hero-footer">
+                © 2026 CareerOS • Empowering Student Careers
+            </div>
+
+        </section>
+
+
+        <!-- RIGHT SIDE -->
+        <section class="form-section">
+
+            <div class="register-card">
+
+                <div class="mobile-brand">
+                    <div class="brand-icon">C</div>
+                    <span>CareerOS</span>
+                </div>
+
+                <div class="form-header">
+
+                    <span class="small-title">GET STARTED</span>
+
+                    <h2>Create your account</h2>
+
+                    <p>
+                        Start your personalized placement journey today.
+                    </p>
+
+                </div>
+
+
+                <form id="registerForm">
+
+                    <div class="input-group">
+
+                        <label for="name">Full Name</label>
+
+                        <div class="input-wrapper">
+
+                            <span>👤</span>
+
+                            <input
+                                type="text"
+                                id="name"
+                                placeholder="Enter your full name"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label for="email">Email Address</label>
+
+                        <div class="input-wrapper">
+
+                            <span>✉️</span>
+
+                            <input
+                                type="email"
+                                id="email"
+                                placeholder="you@example.com"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label for="password">Password</label>
+
+                        <div class="input-wrapper">
+
+                            <span>🔒</span>
+
+                            <input
+                                type="password"
+                                id="password"
+                                placeholder="Create a strong password"
+                                required
+                            >
+
+                            <button
+                                type="button"
+                                class="password-toggle"
+                                id="togglePassword">
+                                👁
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="password-strength">
+
+                        <div class="strength-bar">
+                            <span id="strengthBar"></span>
+                        </div>
+
+                        <small id="strengthText">
+                            Password strength
+                        </small>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="register-btn">
+
+                        Create Account
+
+                        <span>→</span>
+
+                    </button>
+
+
+                    <p id="message"></p>
+
+                </form>
+
+
+                <div class="divider">
+                    <span>Already have an account?</span>
+                </div>
+
+
+                <a href="index.html" class="login-btn">
+                    Sign in to CareerOS
+                </a>
+
+
+                <p class="terms">
+                    By creating an account, you agree to our
+                    <a href="#">Terms</a> and
+                    <a href="#">Privacy Policy</a>.
+                </p>
+
+            </div>
+
+        </section>
 
     </div>
 
+
     <script src="register.js"></script>
+
+    <script>
+
+        // Show / Hide password
+
+        const passwordInput =
+            document.getElementById("password");
+
+        const togglePassword =
+            document.getElementById("togglePassword");
+
+        togglePassword.addEventListener("click", () => {
+
+            if (passwordInput.type === "password") {
+
+                passwordInput.type = "text";
+
+                togglePassword.textContent = "🙈";
+
+            } else {
+
+                passwordInput.type = "password";
+
+                togglePassword.textContent = "👁";
+
+            }
+
+        });
+
+
+        // Password strength
+
+        const strengthBar =
+            document.getElementById("strengthBar");
+
+        const strengthText =
+            document.getElementById("strengthText");
+
+
+        passwordInput.addEventListener("input", () => {
+
+            const password = passwordInput.value;
+
+            let strength = 0;
+
+            if (password.length >= 6)
+                strength++;
+
+            if (/[A-Z]/.test(password))
+                strength++;
+
+            if (/[0-9]/.test(password))
+                strength++;
+
+            if (/[^A-Za-z0-9]/.test(password))
+                strength++;
+
+
+            if (password.length === 0) {
+
+                strengthBar.style.width = "0";
+                strengthText.textContent =
+                    "Password strength";
+
+            } else if (strength <= 1) {
+
+                strengthBar.style.width = "25%";
+                strengthText.textContent =
+                    "Weak password";
+
+            } else if (strength === 2) {
+
+                strengthBar.style.width = "50%";
+                strengthText.textContent =
+                    "Medium password";
+
+            } else if (strength === 3) {
+
+                strengthBar.style.width = "75%";
+                strengthText.textContent =
+                    "Strong password";
+
+            } else {
+
+                strengthBar.style.width = "100%";
+                strengthText.textContent =
+                    "Very strong password";
+
+            }
+
+        });
+
+    </script>
 
 </body>
 </html>
