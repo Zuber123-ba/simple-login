@@ -796,4 +796,64 @@ body {
     .register-card {
         max-width: 100%;
     }
+}/* =========================
+   LOGIN OPTIONS
+========================= */
+
+.login-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-top: -5px;
+    margin-bottom: 20px;
+
+    font-size: 13px;
+}
+
+.remember {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    color: #6b7280;
+
+    cursor: pointer;
+}
+
+.remember input {
+    width: auto;
+    margin: 0;
+
+    accent-color: #4f46e5;
+}
+
+.forgot {
+    color: #4f46e5;
+
+    text-decoration: none;
+
+    font-weight: 600;
+}
+
+.forgot:hover {
+    text-decoration: underline;
+}
+
+
+/* Login button spacing */
+
+#loginForm .register-btn {
+    margin-top: 5px;
+}
+
+
+/* Mobile */
+
+@media (max-width: 480px) {
+
+    .login-options {
+        font-size: 12px;
+    }
+
 }
