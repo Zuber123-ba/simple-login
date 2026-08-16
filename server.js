@@ -2,10 +2,16 @@ const express = require("express");
 const connectDB = require("./db");
 const User = require("./models/user");
 const bcrypt = require("bcrypt");
+const cors = require("cors");
 
 const app = express();
 
 const PORT = process.env.PORT || 3000;
+
+// CORS
+app.use(cors({
+    origin: "https://simple-login-a84m.vercel.app"
+}));
 
 // Connect MongoDB
 connectDB();

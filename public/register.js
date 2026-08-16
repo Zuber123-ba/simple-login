@@ -8,8 +8,9 @@ registerForm.addEventListener("submit", async function (event) {
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
 
-    const response = await fetch("https://simple-login-nxdc.onrender.com/register",  {
-
+    const response = await fetch(
+    "https://simple-login-nxdc.onrender.com/register",
+    {
         method: "POST",
 
         headers: {
@@ -21,8 +22,8 @@ registerForm.addEventListener("submit", async function (event) {
             email,
             password
         })
-
-    });
+    }
+);
 
     const data = await response.json();
 

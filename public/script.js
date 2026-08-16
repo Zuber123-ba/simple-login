@@ -10,21 +10,21 @@ loginForm.addEventListener("submit", async function (event) {
 
     try {
 
-        const response = await fetch("https://simple-login-nxdc.onrender.com/login", {
+       const response = await fetch(
+    "https://simple-login-nxdc.onrender.com/login",
+    {
+        method: "POST",
 
-            method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
 
-            headers: {
-                "Content-Type": "application/json"
-            },
-
-            body: JSON.stringify({
-                email: email,
-                password: password
-            })
-
-        });
-
+        body: JSON.stringify({
+            email,
+            password
+        })
+    }
+);
         const data = await response.json();
 
         if (response.ok) {
