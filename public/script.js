@@ -32,7 +32,7 @@ loginForm.addEventListener("submit", async function (event) {
             message.textContent = data.message;
 
             // Go to dashboard
-            window.location.href = "dashboard.html";
+            window.location.href = "portfolio.html";
 
         } else {
 
