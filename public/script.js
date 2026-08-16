@@ -10,7 +10,7 @@ loginForm.addEventListener("submit", async function (event) {
 
     try {
 
-        const response = await fetch("/login", {
+        const response = await fetch("https://simple-login-nxdc.onrender.com/login", {
 
             method: "POST",
 
