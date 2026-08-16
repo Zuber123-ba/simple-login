@@ -32,24 +32,21 @@ app.post("/register", async (req, res) => {
         const existingUser = await User.findOne({ email });
 
         if (existingUser) {
-
             return res.status(400).json({
                 message: "Email already registered"
             });
-
         }
 
         // Hash password
         const hashedPassword = await bcrypt.hash(password, 10);
 
-        // Create new user
+        // Create user
         const user = new User({
             name: name,
             email: email,
             password: hashedPassword
         });
 
-        // Save user to MongoDB
         await user.save();
 
         res.json({
@@ -59,6 +56,58 @@ app.post("/register", async (req, res) => {
     } catch (error) {
 
         console.log("Registration error:", error);
+
+        res.status(500).json({
+            message: "Server error"
+        });
+
+    }
+
+});
+
+
+// ============================
+// LOGIN API
+// ============================
+
+app.post("/login", async (req, res) => {
+
+    try {
+
+        const { email, password } = req.body;
+
+        // Find user
+        const user = await User.findOne({ email });
+
+        if (!user) {
+            return res.status(401).json({
+                message: "Invalid email or password"
+            });
+        }
+
+        // Check password
+        const isMatch = await bcrypt.compare(
+            password,
+            user.password
+        );
+
+        if (!isMatch) {
+            return res.status(401).json({
+                message: "Invalid email or password"
+            });
+        }
+
+        res.json({
+            message: "Login successful!",
+            user: {
+                name: user.name,
+                email: user.email
+            }
+        });
+
+    } catch (error) {
+
+        console.log("Login error:", error);
 
         res.status(500).json({
             message: "Server error"

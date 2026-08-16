@@ -1,33 +1,51 @@
 const loginForm = document.getElementById("loginForm");
 const message = document.getElementById("message");
 
-loginForm.addEventListener("submit", function (event) {
+loginForm.addEventListener("submit", async function (event) {
 
     event.preventDefault();
 
     const email = document.getElementById("email").value.trim();
     const password = document.getElementById("password").value;
 
-    // Check email
-    if (email === "") {
-        message.textContent = "Please enter your email.";
-        return;
+    try {
+
+        const response = await fetch("/login", {
+
+            method: "POST",
+
+            headers: {
+                "Content-Type": "application/json"
+            },
+
+            body: JSON.stringify({
+                email: email,
+                password: password
+            })
+
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+
+            message.textContent = data.message;
+
+            // Go to dashboard
+            window.location.href = "dashboard.html";
+
+        } else {
+
+            message.textContent = data.message;
+
+        }
+
+    } catch (error) {
+
+        console.log(error);
+
+        message.textContent = "Server connection error.";
+
     }
 
-    // Check password
-    if (password === "") {
-        message.textContent = "Please enter your password.";
-        return;
-    }
-
-    // Check login details
-   if (email === "admin@gmail.com" && password === "12345") {
-
-    window.location.href = "dashboard.html";
-
-} else {
-
-        message.textContent = "Invalid email or password.";
-
-    }
 });
