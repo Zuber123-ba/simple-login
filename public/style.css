@@ -60,3 +60,197 @@ button:hover {
     text-align: center;
     margin-top: 15px;
 }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #f4f7fb;
+}
+
+/* Register Card */
+
+.login-box {
+    width: 100%;
+    max-width: 420px;
+
+    background: white;
+
+    padding: 40px;
+
+    border-radius: 16px;
+
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+}
+
+/* Logo */
+
+.login-box::before {
+    content: "CareerOS";
+
+    display: block;
+
+    text-align: center;
+
+    font-size: 28px;
+    font-weight: bold;
+
+    margin-bottom: 10px;
+}
+
+/* Heading */
+
+.login-box h2 {
+    text-align: center;
+
+    font-size: 26px;
+
+    margin-bottom: 8px;
+}
+
+.login-box h2::after {
+    content: "Create your account";
+
+    display: block;
+
+    font-size: 14px;
+
+    font-weight: normal;
+
+    color: #6b7280;
+
+    margin-top: 8px;
+}
+
+
+/* Form */
+
+#registerForm {
+    margin-top: 25px;
+}
+
+
+/* Input */
+
+input {
+    width: 100%;
+
+    padding: 14px 15px;
+
+    margin-bottom: 15px;
+
+    border: 1px solid #d1d5db;
+
+    border-radius: 8px;
+
+    font-size: 15px;
+
+    outline: none;
+
+    transition: 0.2s;
+}
+
+input:focus {
+    border-color: #2563eb;
+
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+
+/* Button */
+
+button {
+    width: 100%;
+
+    padding: 14px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #2563eb;
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+button:hover {
+    background: #1d4ed8;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+
+/* Message */
+
+#message {
+    text-align: center;
+
+    margin-top: 15px;
+
+    font-size: 14px;
+}
+
+
+/* Login link */
+
+.login-box > p {
+    text-align: center;
+
+    margin-top: 20px;
+
+    font-size: 14px;
+
+    color: #6b7280;
+}
+
+.login-box a {
+    color: #2563eb;
+
+    text-decoration: none;
+
+    font-weight: 600;
+}
+
+.login-box a:hover {
+    text-decoration: underline;
+}
+
+
+/* Mobile */
+
+@media (max-width: 480px) {
+
+    body {
+        padding: 20px;
+    }
+
+    .login-box {
+        padding: 30px 22px;
+
+        border-radius: 12px;
+    }
+
+    .login-box h2 {
+        font-size: 24px;
+    }
+
+}
